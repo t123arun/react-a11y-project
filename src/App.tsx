@@ -39,7 +39,7 @@ const App = () => {
       {result !== null && <p style={{ color: 'green' }}>Result: {result}</p>}
 
       <div role='alert'>
-        <p>Make sure you enter numbers correctly!</p>
+        <p>Make sure you enter numbers correctly! Hello</p>
       </div>
     </div>
   );
