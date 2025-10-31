@@ -7,41 +7,51 @@ const App = () => {
   const handleCalculate = () => {};
 
   return (
-    <div style={{ padding: '20px', backgroundColor: '#fff', color: '#aaa' }}>
+    <main style={{ padding: '20px', backgroundColor: '#fff', color: '#222' }} aria-labelledby='app-title'>
+      <header>
+        <h1 id='app-title'>String Calculator</h1>
+      </header>
       <img
         src='https://images.unsplash.com/photo-1594352161389-11756265d1b5?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         width={600}
         height={400}
+        alt='A white yarn on white surface'
       />
 
-      <h2>String Calculator</h2>
-
-      <h1 style={{ fontSize: '20px' }}>Enter numbers</h1>
-
+      <h2 style={{ fontSize: '20px' }}>Enter numbers</h2>
+      
+    <label htmlFor='numbers-input'>
+      Input Number
+    </label>
       <textarea
+       id='numbers-input'
         style={{ margin: '10px 0', color: '#aaa' }}
+        name='numbers-input'
         placeholder='Enter numbers'
+        aria-describedby="Enter numbers"
+        aria-required="true"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
 
-      <div
+      <button
+       aria-label="handle calculate button"
         onClick={handleCalculate}
         style={{
           padding: '10px',
-          backgroundColor: '#008cba',
+          backgroundColor: '#0078D4',
           color: '#fff',
           border: 'none',
         }}>
         Calculate
-      </div>
+      </button>
 
-      {result !== null && <p style={{ color: 'green' }}>Result: {result}</p>}
+      {result !== null && <p  aria-live="polite" style={{ color: 'green' }}>Result: {result}</p>}
 
-      <div role='alert'>
+      <div role='alert' aria-atomic="true">
         <p>Make sure you enter numbers correctly! Hello</p>
       </div>
-    </div>
+    </main>
   );
 };
 
